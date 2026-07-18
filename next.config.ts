@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
 import { env } from "./env";
+
+initOpenNextCloudflareForDev();
 
 void env;
 
@@ -15,7 +18,6 @@ const securityHeaders = [
 ] as const;
 
 const nextConfig: NextConfig = {
-  distDir: process.env.NEXT_DIST_DIR ?? ".next",
   allowedDevOrigins: ["localhost", "127.0.0.1"],
   poweredByHeader: false,
   async headers() {

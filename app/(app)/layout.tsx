@@ -10,7 +10,7 @@ export default function AppLayout({
       <AppSidebar />
       <header className="border-border/70 bg-background sticky top-0 z-20 flex min-h-16 items-center border-b px-4 sm:px-8">
         <span className="text-muted-foreground text-xs font-semibold tracking-[0.14em] uppercase">
-          App Skeleton
+          Baseline Web App
         </span>
       </header>
       <main className="mx-auto w-full max-w-300 min-w-0 px-4 py-8 pb-16 sm:px-8 sm:py-10">

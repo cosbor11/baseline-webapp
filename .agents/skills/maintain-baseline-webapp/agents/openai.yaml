@@ -1,0 +1,4 @@
+interface:
+  display_name: "Maintain Baseline Web App"
+  short_description: "Safely maintain and validate Baseline Web App"
+  default_prompt: "Use $maintain-baseline-webapp to implement and validate this repository change safely."

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This repository is a local-only application skeleton for building a focused
+This repository is a Next.js application skeleton for building a focused
 desktop web application. It preserves routing, a shared navigation shell, a
 dark design system, reusable UI primitives, client data-management libraries,
 and representative pages without defining a product domain.
@@ -14,7 +14,14 @@ and representative pages without defining a product domain.
 - Client Components only for browser state, event handling, or interactive
   library integrations
 - Loopback-only local development through `npm run dev`
-- Production validation through the isolated `.next-build` directory
+- Cloudflare Workers deployment through the OpenNext adapter
+- Production-like local preview in the Workers `workerd` runtime through
+  `npm run preview`
+
+The application continues to use the standard Next.js Node.js runtime model;
+OpenNext adapts its production output to the Node.js-compatible Workers runtime.
+Cloudflare Pages is not a deployment target because it supports Next.js only as
+a static export, while this application includes server routes.
 
 There are no external services, authentication providers, databases, streams,
 or privileged integrations in the skeleton.
@@ -67,7 +74,8 @@ cross-route requirement exists.
 ## Validation
 
 `npm run check` runs ESLint, strict TypeScript, Prettier verification, Knip
-dead-code analysis, Vitest unit tests, and a production Next.js build.
+dead-code analysis, Vitest unit tests, an OpenNext production build, and a
+Wrangler deployment dry run.
 Playwright exercises the application shell and representative client
 interactions through `npm run test:e2e`; axe fails the suite on serious or
 critical violations across `/`, `/projects`, `/settings`, and opened overlay
@@ -84,7 +92,7 @@ baseline security headers (`X-Content-Type-Options`, `X-Frame-Options`,
 
 ## Non-goals
 
-- Hosting or alternate runtime adapters
+- Additional hosting providers or static-export variants
 - Product-domain models or workflows
 - Placeholder external integrations
 - Background schedulers or persistent client runtimes without a feature need

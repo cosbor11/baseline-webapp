@@ -7,5 +7,11 @@ export default defineConfig([
   ...nextVitals,
   ...nextTypeScript,
   eslintConfigPrettier,
-  globalIgnores([".next/**", ".next-build/**"]),
+  globalIgnores([
+    ".next/**",
+    ".next-build/**",
+    ".open-next/**",
+    ".wrangler/**",
+    "cloudflare-env.d.ts",
+  ]),
 ]);

@@ -1,6 +1,8 @@
 node_modules/
 .next/
 .next-build/
+.open-next/
+.wrangler/
 .env*
 !.env.example
 npm-debug.log*

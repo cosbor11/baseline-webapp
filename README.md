@@ -1,4 +1,4 @@
-# App Skeleton
+# Baseline Web App
 
 A clean, local-first Next.js application skeleton with a compact sidebar, dark design system, reusable UI primitives, and representative routes.
 
@@ -60,5 +60,23 @@ advisory `npm audit`. Failed browser runs retain their report, traces, and
 screenshots as CI artifacts. Dependabot opens weekly dependency PRs. Pre-commit
 formats staged files with husky + lint-staged.
 
-Production validation writes to `.next-build`, keeping it separate from the
-`.next` development output.
+Production validation builds the OpenNext Worker and performs a Wrangler
+deployment dry run.
+
+## Cloudflare deployment
+
+This full-stack application deploys to Cloudflare Workers through the OpenNext
+adapter. Cloudflare Pages supports Next.js as a static export only, so Pages is
+not a compatible target while server routes such as `/api/health` remain part of
+the application.
+
+```bash
+npm run preview # build and run locally in workerd
+npm run deploy  # build and deploy to Cloudflare Workers
+```
+
+The Worker configuration lives in `wrangler.jsonc`. Before the first deploy,
+authenticate Wrangler with `npx wrangler login`, or provide Cloudflare API
+credentials through the deployment environment. Add future build-time values
+and secrets to the Cloudflare Workers build configuration as well as to the
+deployed Worker.

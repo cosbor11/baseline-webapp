@@ -20,8 +20,8 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "App Skeleton",
-    template: "%s · App Skeleton",
+    default: "Baseline Web App",
+    template: "%s · Baseline Web App",
   },
   description: "A clean Next.js application skeleton.",
 };
